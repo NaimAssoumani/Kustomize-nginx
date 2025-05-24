@@ -1,0 +1,17 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: qual
+namePrefix: qual-
+
+resources:
+  - ../../base/
+
+patches:
+  - path: patch-deployment.yml
+
+configMapGenerator:
+  - name: custom-html-0
+    files:
+      - index.html
